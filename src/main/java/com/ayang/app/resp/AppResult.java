@@ -6,7 +6,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.List;
 
 /**
- * 淘淘商城自定义响应结构
+ * 自定义响应结构
  */
 public class AppResult {
 
@@ -24,6 +24,11 @@ public class AppResult {
 
     public static AppResult build(Integer status, String msg, Object data) {
         return new AppResult(status, msg, data);
+    }
+
+    //简化Controller
+    public static AppResult build(ErrorEnum enums, Object data) {
+        return new AppResult(enums.status(), enums.msg(), data);
     }
 
     public static AppResult ok(Object data) {

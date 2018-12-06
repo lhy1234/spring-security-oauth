@@ -3,7 +3,12 @@ package com.ayang.app.resp;
 public enum ErrorEnum {
 
     FAILURE(0, "失败" ),
-    SUCCESS(200, "成功"),
+    SUCCESS(1, "成功"),
+
+
+    DATA_VALIDATE_EX(2,"数据校验异常"),
+
+
 
 
     // http响应相关

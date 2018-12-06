@@ -95,10 +95,10 @@ public class CustomResourceServerConfig  extends ResourceServerConfigurerAdapter
                         SecurityConstants.DEFAULT_LOGIN_PROCESSING_URL_MOBILE,
                         SecurityConstants.SESSION_INVALID_PAGE,
                         SecurityConstants.DEFAULT_USER_REGISTER,
-                        SecurityConstants.DEFAULT_VALIDATE_CODE_URL_PREFIX+"/*").permitAll() //验证码
+                        SecurityConstants.DEFAULT_VALIDATE_CODE_URL_PREFIX+"/*"
+                ).permitAll() //验证码
                 .anyRequest()        //任何请求
                 .authenticated()    //都需要身份认证
-
                 .and()
                 .csrf().disable() //关闭csrf防护
                 .apply(smsCodeAuthenticationSecurityConfig);//把短信验证码配置应用上

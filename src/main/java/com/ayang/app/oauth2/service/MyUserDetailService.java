@@ -2,6 +2,7 @@ package com.ayang.app.oauth2.service;
 
 
 import com.ayang.app.exception.UserNotExistException;
+import com.ayang.app.oauth2.support.SecurityUser;
 import com.ayang.app.service.IUserService;
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import org.slf4j.Logger;

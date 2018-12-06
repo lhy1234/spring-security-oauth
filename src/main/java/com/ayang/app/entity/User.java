@@ -6,6 +6,12 @@ import java.util.Date;
 import com.baomidou.mybatisplus.annotations.TableField;
 import com.baomidou.mybatisplus.activerecord.Model;
 import com.baomidou.mybatisplus.annotations.TableName;
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.NotBlank;
+
+
+import javax.validation.constraints.Past;
 
 /**
  * <p>
@@ -21,14 +27,26 @@ public class User extends Model<User> {
     private static final long serialVersionUID = 1L;
 
     private Long id;
+
+    @NotBlank(message = "用户名不能为空")
+    @Length(max = 20,message = "用户名最长为{max}位")
     private String username;
     private String password;
+
+    @Email
+    @NotBlank(message = "邮箱不能为空")
     private String email;
+
+    @Past(message = "出生日期只能是过去的日期")
     private Date birthday;
     @TableField("is_del")
     private Integer isDel;
     @TableField("is_locked")
     private Integer isLocked;
+
+
+
+
 
 
     public Long getId() {
